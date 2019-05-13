@@ -63,15 +63,15 @@
 - name: Download resin-wifi-connect release
   get_url:
     url: "https://github.com/resin-io/resin-wifi-connect/releases/download/v{{ resin_wifi_connect_version }}/wifi-connect-v{{ resin_wifi_connect_version }}-linux-rpi.tar.gz"
-    dest: /home/pi/resin-wifi-connect.tar.gz
+    dest: /opt/pi/resin-wifi-connect.tar.gz
   when:
     - ansible_distribution_major_version|int >= 9
     - not resin_wifi_version_file_exist
 
 - name: Unarchive resin-wifi-connect release
   unarchive:
-    src: /home/pi/resin-wifi-connect.tar.gz
-    dest: /home/pi
+    src: /opt/pi/resin-wifi-connect.tar.gz
+    dest: /opt/pi
     owner: pi
     group: pi
   when:
@@ -80,7 +80,7 @@
 
 - name: Copy "ui" folder
   copy:
-    src: /home/pi/ui/
+    src: /opt/pi/ui/
     dest: /usr/local/share/wifi-connect/ui
     mode: 0755
   when:
@@ -89,7 +89,7 @@
 
 - name: Copy wifi-connect file
   copy:
-    src: /home/pi/wifi-connect
+    src: /opt/pi/wifi-connect
     dest: /usr/local/sbin
     mode: 0755
   when:
@@ -107,7 +107,7 @@
 - name: Remove unarchive files
   file:
     state: absent
-    path: "/home/pi/{{ item }}"
+    path: "/opt/pi/{{ item }}"
   with_items:
     - wifi-connect
     - ui
@@ -129,7 +129,7 @@
 - name: Touch initialized file
   file:
     state: touch
-    path: "/home/pi/.screenly/initialized"
+    path: "/opt/pi/.screenly/initialized"
 
 - name: Add pi user to Identity
   replace:

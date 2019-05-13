@@ -2,9 +2,9 @@
 Description=Websocket Server layer
 
 [Service]
-WorkingDirectory=/home/pi/screenly
+WorkingDirectory=/opt/pi/screenly
 User=pi
-ExecStart=/usr/bin/python /home/pi/screenly/websocket_server_layer.py
+ExecStart=/usr/bin/python /opt/pi/screenly/websocket_server_layer.py
 Restart=always
 
 [Install]

@@ -1,7 +1,7 @@
 ---
 # Enable Nginx
 - name: Check screenly.conf
-  command: cat /home/pi/.screenly/screenly.conf
+  command: cat /opt/pi/.screenly/screenly.conf
   register: config
 
 - set_fact: no_ssl="{{config.stdout.find('use_ssl = True') == -1}}"

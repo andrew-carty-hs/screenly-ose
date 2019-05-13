@@ -3,7 +3,7 @@ Description=Screenly Viewer
 After=matchbox.service screenly-web.service
 
 [Service]
-WorkingDirectory=/home/pi/screenly
+WorkingDirectory=/opt/pi/screenly
 User=pi
 
 Environment=DISPLAY=:0.0
@@ -11,7 +11,7 @@ Environment=DISPLAY=:0.0
 # Fix white flickering in omxplayer
 Environment=NOREFRESH=1
 
-Environment=PYTHONPATH=/home/pi/screenly
+Environment=PYTHONPATH=/opt/pi/screenly
 
 # Don't activate screensaver
 ExecStartPre=/usr/bin/xset s off
@@ -22,7 +22,7 @@ ExecStartPre=/usr/bin/xset -dpms
 # Don't blank the video device
 ExecStartPre=/usr/bin/xset s noblank
 
-ExecStart=/usr/bin/python /home/pi/screenly/viewer.py
+ExecStart=/usr/bin/python /opt/pi/screenly/viewer.py
 Restart=on-failure
 
 ExecStartPost=/bin/rm -f /tmp/uzbl_*

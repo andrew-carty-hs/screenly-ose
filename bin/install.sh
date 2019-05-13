@@ -84,8 +84,8 @@ curl -s https://bootstrap.pypa.io/get-pip.py | sudo python
 
 sudo pip install ansible==2.7.10
 
-ansible localhost -m git -a "repo=${1:-https://github.com/screenly/screenly-ose.git} dest=/home/pi/screenly version=$BRANCH"
-cd /home/pi/screenly/ansible
+ansible localhost -m git -a "repo=${1:-https://github.com/screenly/screenly-ose.git} dest=/opt/pi/screenly version=$BRANCH"
+cd /opt/pi/screenly/ansible
 
 ansible-playbook site.yml $EXTRA_ARGS
 

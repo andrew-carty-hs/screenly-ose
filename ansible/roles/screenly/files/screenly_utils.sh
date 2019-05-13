@@ -2,8 +2,8 @@
 
 recover(){
     sudo service screenly-viewer stop
-    rm -rf /home/pi/.screenly /home/pi/screenly_assets
-    tar -xvf "$1" -C /home/pi/
+    rm -rf /opt/pi/.screenly /opt/pi/screenly_assets
+    tar -xvf "$1" -C /opt/pi/
     sudo service screenly-viewer start
 }
 

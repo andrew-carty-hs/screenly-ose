@@ -455,7 +455,7 @@ def asset_loop(scheduler):
 
 def setup():
     global HOME, arch, db_conn
-    HOME = getenv('HOME', '/home/pi')
+    HOME = getenv('HOME', '/opt/pi')
     arch = machine()
 
     signal(SIGUSR1, sigusr1)

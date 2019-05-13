@@ -45,7 +45,7 @@ from lib.utils import is_demo_node
 
 from settings import auth_basic, CONFIGURABLE_SETTINGS, DEFAULTS, LISTEN, PORT, settings, ZmqPublisher, ZmqCollector
 
-HOME = getenv('HOME', '/home/pi')
+HOME = getenv('HOME', '/opt/pi')
 
 app = Flask(__name__)
 CORS(app)

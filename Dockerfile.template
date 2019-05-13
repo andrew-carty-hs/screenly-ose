@@ -58,7 +58,7 @@ RUN sed -i '/\[Service\]/ a\Environment=DISABLE_UPDATE_CHECK=True' /etc/systemd/
 ENV INITSYSTEM on
 
 # Create runtime user
-RUN    useradd pi -d /home/pi \
+RUN    useradd pi -d /opt/pi \
     && /usr/sbin/usermod -a -G video pi
 
 # Install config file and file structure
@@ -66,11 +66,11 @@ RUN mkdir -p /home/pi/screenly
 COPY ansible/roles/screenly/files/gtkrc-2.0 /home/pi/.gtkrc-2.0
 
 # Copy in code base
-COPY . /home/pi/screenly
+COPY . /opt/pi/screenly
 
-RUN chown -R pi:pi /home/pi
+RUN chown -R pi:pi /opt/pi
 
-WORKDIR /home/pi/screenly
+WORKDIR /home/opt/screenly
 
 CMD ["bash", "chmod 777 /dev/vchiq"]
 CMD ["bash", "bin/start_resin.sh"]
