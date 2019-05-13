@@ -11,7 +11,7 @@ import time
 
 from requests.auth import HTTPBasicAuth
 
-HOME = os.getenv('HOME', '/home/pi')
+HOME = os.getenv('HOME', '/opt/pi')
 
 BASE_API_SCREENLY_URL = 'https://api.screenlyapp.com'
 ASSETS_SCREENLY_OSE_API = 'http://127.0.0.1:8080/api/v1.1/assets'

@@ -32,15 +32,15 @@ RUN curl -s https://bootstrap.pypa.io/get-pip.py | python && \
 RUN useradd pi
 
 # Install config file and file structure
-RUN mkdir -p /home/pi/.screenly /home/pi/screenly /home/pi/screenly_assets
-COPY ansible/roles/screenly/files/screenly.conf /home/pi/.screenly/screenly.conf
+RUN mkdir -p /opt/pi/.screenly /opt/pi/screenly /opt/pi/screenly_assets
+COPY ansible/roles/screenly/files/screenly.conf /opt/pi/.screenly/screenly.conf
 
 # Copy in code base
-COPY . /home/pi/screenly
-RUN chown -R pi:pi /home/pi
+COPY . /opt/pi/screenly
+RUN chown -R pi:pi /opt/pi
 
 USER pi
-WORKDIR /home/pi/screenly
+WORKDIR /opt/pi/screenly
 
 EXPOSE 8080
 

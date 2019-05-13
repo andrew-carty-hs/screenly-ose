@@ -1,4 +1,4 @@
-import unittest
+/opt/piimport unittest
 import os
 import sh
 import shutil
@@ -17,8 +17,8 @@ resolution = 1920x1080
 default_duration = 45
 
 [main]
-assetdir = /home/pi/screenly_assets
-database = /home/pi/.screenly/screenly.db
+assetdir = /opt/pi/screenly_assets
+database = /opt/pi/.screenly/screenly.db
 use_ssl = False
 
 """
